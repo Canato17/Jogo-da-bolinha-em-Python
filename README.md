@@ -20,7 +20,10 @@ Esse jogo é o jogo tradicional de dois jogadores que não podem deixar a bolinh
 # Tela de Vitoria
 
 
-![tela_vitoria](https://github.com/user-attachments/assets/ba7d259d-da0b-4fc6-80cc-92547bfdae0d)
+
+![tela_de_vitoria](https://github.com/user-attachments/assets/95f28664-718c-4d44-a8ae-f928b0de1a32)
+
+
 
 
 
