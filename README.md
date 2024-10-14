@@ -3,4 +3,24 @@ Jogo em Python
 
 Esse jogo é o jogo tradicional de dois jogadores que não podem deixar a bolinha passar pelo jogador.
 
-![jogo da bolinha](https://github.com/user-attachments/assets/b7ace2fb-b66e-47d2-a5e9-aa9a04f7b1f0)
+
+# Tela de Inicio
+
+
+
+
+![tela_inicial](https://github.com/user-attachments/assets/5a287194-56b7-42bd-bb92-f4a51e0f80e2)
+
+# Tela do Jogo
+
+
+
+![tela_jogo](https://github.com/user-attachments/assets/26ed2c4d-31b2-402a-a5b3-fbdee1954433)
+
+# Tela de Vitoria
+
+
+![tela_vitoria](https://github.com/user-attachments/assets/ba7d259d-da0b-4fc6-80cc-92547bfdae0d)
+
+
+
