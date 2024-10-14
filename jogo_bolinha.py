@@ -161,14 +161,14 @@ while janela_aberta:
     janela.blit(texto_pontos_jogador2, (LARGURAJANELA * 3 / 4, 20))
 
     #===================== TELA DE VENCEDOR ========================
-    if pontos_jogador1 == 1:
+    if pontos_jogador1 == 10:
         janela.blit(tela_vitoria,(0,0))
         vencedor = fonte.render(f"Vencedor: jogador 1", True, (255, 255, 255))
         janela.blit(vencedor, (200, 250))
         pg.display.flip()
         pg.time.wait(2000)
         break
-    elif pontos_jogador2 == 1:
+    elif pontos_jogador2 == 10:
         janela.blit(tela_vitoria,(0,0))
         vencedor = fonte.render(f"Vencedor: jogador 2", True, (255, 255, 255))
         janela.blit(vencedor, (200, 250))
