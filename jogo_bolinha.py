@@ -25,11 +25,17 @@ janela = pg.display.set_mode((LARGURAJANELA, ALTURAJANELA))
 #coloca um nome na janela
 pg.display.set_caption("Jogo da bolinha")
 
+fundo = pg.image.load("fundo.jpg")
+tela_vitoria = pg.image.load("tela_vitoria.png")
+
 #cria relogio
 clock = pg.time.Clock()
 
 #cria variavel para usar no while para deixar a janela aberta
 janela_aberta = True
+
+# Variável para controlar o estado do jogo
+jogo_iniciado = False
 
 #===================== JOGADOR =======================
 #cria retangulo 
@@ -51,12 +57,41 @@ pontos_jogador2 = 0
 fonte = pg.font.SysFont("Calibre", 50)
 
 
-#===================== LOOP PRINCIPAL =======================
+# Loop do jogo
 while True:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             pg.quit()
             sys.exit()
+        elif event.type == pg.KEYDOWN:
+            if event.key == pg.K_RETURN:
+                jogo_iniciado = True
+
+    # Desenho da imagem de fundo
+    janela.blit(fundo, (0, 0))
+
+    # Desenho do texto "Pressione Enter para Iniciar"
+    texto = fonte.render("Pressione 'Enter' para Iniciar", True, (255, 255, 255))
+    janela.blit(texto, (120, 250))
+
+    # Atualização da tela
+    pg.display.flip()
+
+    # Controle de taxa de quadros
+    pg.time.Clock().tick(60)
+
+    # Verificação se o jogo foi iniciado
+    if jogo_iniciado:
+        break
+
+
+#===================== LOOP PRINCIPAL =======================
+while janela_aberta:
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            pg.quit()
+            sys.exit()
+        
 
     # ====================== JOGADOR =======================
     #teclas 
@@ -112,10 +147,9 @@ while True:
         bola.y = ALTURAJANELA / 2
         velocidade_bola = [rm.choice([-VELOCIDADE_BOLA, VELOCIDADE_BOLA]), rm.choice([-VELOCIDADE_BOLA, VELOCIDADE_BOLA])]
 
-
     # ===================  DESENHO =======================
     #desenho da tela
-    janela.fill((PRETO))
+    janela.blit(fundo, (0, 0))
     pg.draw.rect(janela, VERMELHO, retangulo1)
     pg.draw.rect(janela, BRANCO, retangulo2)
     pg.draw.ellipse(janela, AMARELA, bola)
@@ -126,6 +160,21 @@ while True:
     janela.blit(texto_pontos_jogador1, (LARGURAJANELA / 4, 20))
     janela.blit(texto_pontos_jogador2, (LARGURAJANELA * 3 / 4, 20))
 
+    #===================== TELA DE VENCEDOR ========================
+    if pontos_jogador1 == 1:
+        janela.blit(tela_vitoria,(0,0))
+        vencedor = fonte.render(f"Vencedor: jogador 1", True, (255, 255, 255))
+        janela.blit(vencedor, (200, 250))
+        pg.display.flip()
+        pg.time.wait(2000)
+        break
+    elif pontos_jogador2 == 1:
+        janela.blit(tela_vitoria,(0,0))
+        vencedor = fonte.render(f"Vencedor: jogador 2", True, (255, 255, 255))
+        janela.blit(vencedor, (200, 250))
+        pg.display.flip()
+        pg.time.wait(2000)
+        break
 
     #================ TELA =================
     # alterações na tela
@@ -133,3 +182,7 @@ while True:
 
     #controle de taxa de quadros
     clock.tick(60)
+
+
+
+
